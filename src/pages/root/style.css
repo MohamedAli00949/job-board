@@ -1,0 +1,99 @@
+.upper-side {
+  background-image: url("/public/images/banner\ 1.png");
+  padding-bottom: 30px;
+  color: #fff;
+  background-position: center;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block: 80px 30px;
+}
+
+.hero .left,
+.hero .right {
+  width: 50%;
+}
+
+.hero .right img {
+  width: 100%;
+}
+
+.hero .left {
+  margin-left: 66px;
+  letter-spacing: 0em;
+}
+
+.hero .left p {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 36px;
+  text-align: left;
+}
+
+.left h1 {
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 68px;
+  text-align: left;
+  margin-block: 14px;
+}
+
+.left span {
+  margin-bottom: 40px;
+  display: block;
+}
+
+@media (max-width: 1200px) {
+  .hero h1 {
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero .left,
+  .hero .right {
+    width: 100%;
+  }
+
+  .hero .left {
+    margin-left: 0;
+  }
+
+  .hero .left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .left h1 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero .left p {
+    font-size: 25px;
+  }
+
+  .left h1 {
+    font-size: 30px;
+  }
+}

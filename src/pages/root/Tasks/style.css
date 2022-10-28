@@ -1,0 +1,225 @@
+.down-side {
+  padding-block: 70px;
+}
+
+.down-side h1 {
+  font-family: Inter;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 46px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-block: 50px 40px;
+  text-transform: capitalize;
+}
+
+.job {
+  background: #fff;
+  padding: 31px 34px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.job:not(:last-of-type) {
+  margin-block: 12px 24px;
+}
+
+.background-link {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.job-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 100;
+  width: 100%;
+}
+
+.job-container h1,
+.job-container p,
+.job-container img,
+.job-container button,
+.job-container a:not(:first-of-type) {
+  z-index: 100;
+}
+
+.job .company-logo {
+  background: #f5f7fa;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  padding: 16px;
+  z-index: 100;
+}
+
+.company-logo img {
+  height: 50px;
+}
+
+.job .job-details {
+  margin-left: 20px;
+  width: 100%;
+}
+
+.job .job-details .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.job .job-details .row .title {
+  font-family: "Inter";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.job-details .save-job {
+  background: #effdf5;
+  border: 1px solid #effdf5;
+  border-radius: 4px;
+  padding: 11px;
+  margin-right: 10px;
+}
+
+.job-details .job-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-buttons .apply-now {
+  padding: 13px 22px;
+  margin-inline: 10px 0;
+  z-index: 100;
+}
+
+.row .other-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row .other-data p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: capitalize;
+  color: #777777;
+  margin-bottom: 10px;
+}
+
+.row .other-data p:not(:last-of-type) {
+  margin-right: 39px;
+}
+
+.row .publish-date {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: capitalize;
+  color: #777777;
+}
+
+.more-jobs {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  .down-side {
+    padding-block: 40px;
+  }
+
+  .company-logo img {
+    height: 100px;
+  }
+
+  .job-details .job-buttons {
+    width: 100%;
+  }
+
+  .job-buttons .apply-now {
+    width: 100%;
+    text-align: center;
+    margin-inline: 0;
+  }
+
+  .job .job-details .row {
+    flex-direction: column;
+    align-items: baseline;
+  }
+
+  .job .job-details .row .title {
+    margin-bottom: 10px;
+  }
+
+  .job-details .save-job {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .job-container {
+    flex-flow: wrap;
+  }
+
+  .job .company-logo {
+    background-color: transparent;
+    padding: 22px;
+    border: none;
+  }
+
+  .company-logo img {
+    width: 100%;
+    height: auto;
+  }
+
+  .job .job-details {
+    margin-inline: 0;
+    margin-top: 15px;
+  }
+
+  .job-details .save-job {
+    top: 10px;
+    right: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .job-details .save-job {
+    padding: 8px;
+  }
+
+  .row .other-data p:not(:last-of-type) {
+    margin-right: 20px;
+  }
+}
