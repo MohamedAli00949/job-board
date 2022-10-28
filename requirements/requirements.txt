@@ -1,0 +1,13 @@
+frontend requirements:
+convert the landing page (homepage) into raw html & css
+using the frist endpoint (/jobs) to make the landing page dynamic (fetch api)
+dealine for the first task: 28 11:55 pm
+
+
+backend requirements:
+create and endpoint for jobs (/jobs) which should return exactly what current /jobs endpoint returns
+dealine for the first task: 28 11:55 pm
+
+resources:
+Figma desgin: https://www.figma.com/file/xIvd5lCMyiBIO9CiKZkP3U/Untitled?node-id=0%3A1
+domain: https://gdsc-job-app.herokuapp.com/api

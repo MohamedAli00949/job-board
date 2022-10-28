@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.buttons {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.buttons a {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-right: 5px;
+  padding: 16px 27px;
+  text-transform: capitalize;
+}
+
+@media (max-width: 550px) {
+  .header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .buttons {
+    width: 100%;
+    margin-top: 10px;
+    justify-content: space-around;
+  }
+}

@@ -1,0 +1,36 @@
+/* Start message */
+
+.message-container {
+  position: fixed;
+  top: 14%;
+  z-index: 1000;
+  background: #ee3535;
+  padding: 12px;
+  border-radius: 8px;
+  left: 10px;
+  box-shadow: 0 0 5px #454545;
+  font-size: 18px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+}
+
+.message-container div,
+.message-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-container div {
+  margin-right: 10px;
+}
+
+.message-container button {
+  font-size: 20px;
+  color: #fff;
+}
+/* End message */

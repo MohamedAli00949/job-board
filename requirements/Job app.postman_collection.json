@@ -1,0 +1,571 @@
+{
+	"info": {
+		"_postman_id": "5c3f08f3-0fbd-4d14-9e24-984469ba1539",
+		"name": "Job app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11350135"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/login",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"secret\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/login",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"message\": \"Email or password is not correct.\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/login",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"created_at\": \"2022-10-22T16:05:28.343897+02:00\",\n        \"email\": \"admin@admin.com\",\n        \"id\": 1,\n        \"name\": \"Admin\"\n    },\n    \"token\": \"jwt token\"\n}"
+						}
+					]
+				},
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ahmed Hamed\",\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/register",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ahmed Hamed\",\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/register",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"message\": \"Account with email (admin@admin.com) already exists\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ahmed Hamed\",\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/register",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"created_at\": \"2022-10-22T16:57:33.124625+02:00\",\n        \"email\": \"test@test.com\",\n        \"id\": 3,\n        \"name\": \"Ahmed Hamed\"\n    },\n    \"token\": \"jwt token\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "jobs",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/jobs?page=1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/jobs?page=1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"jobs"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"company_email\": \"test@test.com\",\n            \"company_logo\": \"https://ucarecdn.com/3ec2e65c-b1a5-4961-8dbd-c921572e4a95/\",\n            \"company_name\": \"Google\",\n            \"created_at\": \"2022-10-22T17:52:44.882011+02:00\",\n            \"description\": \"<h1>test</h1><p>test</p>&lt;div&gt;test&lt;/div&gt;\",\n            \"id\": 3,\n            \"location\": \"USA\",\n            \"salary\": \"80 - 150k\",\n            \"title\": \"Software Engineer\",\n            \"type\": 1,\n            \"vacancy\": 3\n        },\n        {\n            \"company_email\": \"test@test.com\",\n            \"company_logo\": \"https://ucarecdn.com/3ec2e65c-b1a5-4961-8dbd-c921572e4a95/\",\n            \"company_name\": \"Google\",\n            \"created_at\": \"2022-10-22T17:52:44.882011+02:00\",\n            \"description\": \"<h1>test</h1><p>test</p>&lt;div&gt;test&lt;/div&gt;\",\n            \"id\": 4,\n            \"location\": \"USA\",\n            \"salary\": \"80 - 150k\",\n            \"title\": \"Software Engineer\",\n            \"type\": 1,\n            \"vacancy\": 3\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"per_page\": 15,\n        \"total\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Software Engineer\",\r\n    \"description\": \"<h1>test</h1><p>test</p><div>test</div>\",\r\n    \"vacancy\": 3,\r\n    \"salary\": \"80 - 150k\",\r\n    \"location\": \"USA\",\r\n    \"type\": 1,\r\n    \"company_name\": \"Google\",\r\n    \"company_logo\": \"3ec2e65c-b1a5-4961-8dbd-c921572e4a95/\",\r\n    \"company_email\": \"test@test.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/jobs",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sucess",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Software Engineer\",\r\n    \"description\": \"<h1>test</h1><p>test</p><div>test</div>\",\r\n    \"vacancy\": 3,\r\n    \"salary\": \"80 - 150k\",\r\n    \"location\": \"USA\",\r\n    \"type\": 3,\r\n    \"company_name\": \"Google\",\r\n    \"company_logo\": \"Test\",\r\n    \"company_email\": \"test@test.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/jobs",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"jobs"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"data\": {\r\n        \"company_email\": \"test@test.com\",\r\n        \"company_logo\": \"https://ucarecdn.com/3ec2e65c-b1a5-4961-8dbd-c921572e4a95/\",\r\n        \"company_name\": \"Google\",\r\n        \"created_at\": \"2022-10-22T17:52:44.882011+02:00\",\r\n        \"description\": \"<h1>test</h1><p>test</p>&lt;div&gt;test&lt;/div&gt;\",\r\n        \"id\": 4,\r\n        \"location\": \"USA\",\r\n        \"salary\": \"80 - 150k\",\r\n        \"title\": \"Software Engineer\",\r\n        \"type\": 1,\r\n        \"vacancy\": 3\r\n    }\r\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Software Engineer\",\r\n    \"description\": \"<h1>test</h1><p>test</p><div>test</div>\",\r\n    \"vacancy\": \"fd\",\r\n    \"salary\": \"80 - 150k\",\r\n    \"type\": 5,\r\n    \"company_name\": \"Google\",\r\n    \"company_logo\": \"Test\",\r\n    \"company_email\": \"test@test.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/jobs",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"jobs"
+									]
+								}
+							},
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": {\n        \"location\": [\n            \"Missing data for required field.\"\n        ],\n        \"type\": [\n            \"Must be one of: 1, 2.\"\n        ],\n        \"vacancy\": [\n            \"Not a valid integer.\"\n        ]\n    },\n    \"message\": \"The given data was invalid.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/jobs/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"jobs",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/jobs/5",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"jobs",
+										"5"
+									]
+								}
+							},
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"message\": \"The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.\"\n}"
+						},
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/jobs/1",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"jobs",
+										"1"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"message\": \"success\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "profile",
+			"item": [
+				{
+					"name": "jobs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/profile/jobs",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"profile",
+								"jobs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}/profile/jobs",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"profile",
+										"jobs"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"company_email\": \"test@test.com\",\n            \"company_logo\": \"https://ucarecdn.com/3ec2e65c-b1a5-4961-8dbd-c921572e4a95/\",\n            \"company_name\": \"Google\",\n            \"created_at\": \"2022-10-22T17:52:44.882011+02:00\",\n            \"description\": \"<h1>test</h1><p>test</p>&lt;div&gt;test&lt;/div&gt;\",\n            \"id\": 3,\n            \"location\": \"USA\",\n            \"salary\": \"80 - 150k\",\n            \"title\": \"Software Engineer\",\n            \"type\": 1,\n            \"vacancy\": 3\n        },\n        {\n            \"company_email\": \"test@test.com\",\n            \"company_logo\": \"https://ucarecdn.com/3ec2e65c-b1a5-4961-8dbd-c921572e4a95/\",\n            \"company_name\": \"Google\",\n            \"created_at\": \"2022-10-22T17:52:44.882011+02:00\",\n            \"description\": \"<h1>test</h1><p>test</p>&lt;div&gt;test&lt;/div&gt;\",\n            \"id\": 4,\n            \"location\": \"USA\",\n            \"salary\": \"80 - 150k\",\n            \"title\": \"Software Engineer\",\n            \"type\": 1,\n            \"vacancy\": 3\n        }\n    ],\n    \"meta\": {\n        \"current_page\": 1,\n        \"per_page\": 15,\n        \"total\": 2\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "media",
+			"item": [
+				{
+					"name": "upload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/ahmed/Desktop/Image_created_with_a_mobile_phone.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain}}/upload",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/ahmed/Desktop/Image_created_with_a_mobile_phone.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{domain}}/upload",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"upload"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"path\": \"3ec2e65c-b1a5-4961-8dbd-c921572e4a95/\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
