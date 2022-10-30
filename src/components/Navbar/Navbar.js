@@ -8,7 +8,7 @@ function Navbar() {
     <div className='header'>
       <div className='logo-container'>
         <Link to="/">
-          <img src='/images/logo.png' alt='logo' />
+          <img src='/images/logo.png' alt='logo' width="" height="" />
         </Link>
       </div>
       <div className='buttons'>
