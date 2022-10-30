@@ -25,14 +25,27 @@
 }
 
 @media (max-width: 550px) {
-  .header {
-    flex-wrap: wrap;
-    justify-content: center;
+  .buttons {
+    margin-top: 0px;
+    justify-content: flex-end;
   }
 
-  .buttons {
-    width: 100%;
-    margin-top: 10px;
-    justify-content: space-around;
+  .buttons a {
+    padding: 10px 15px;
+  }
+
+  .logo-container img {
+    width: 150px;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo-container img {
+    width: 130px;
+  }
+  
+  .buttons a {
+    margin: 0;
+    padding: 10px;
   }
 }

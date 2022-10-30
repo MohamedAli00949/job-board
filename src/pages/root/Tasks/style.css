@@ -54,6 +54,15 @@
   z-index: 100;
 }
 
+.job-buttons .main-button:hover {
+  box-shadow: 0px 0px 10px 0px #7a7a7aa1;
+}
+
+.job-buttons button:hover {
+  /* box-shadow: 0 0 10px #bebebe; */
+  box-shadow: 0 0 20px #bebebe6e;
+}
+
 .job .company-logo {
   background: #f5f7fa;
   border: 1px solid #f0f0f0;
@@ -69,16 +78,28 @@
 .job .job-details {
   margin-left: 20px;
   width: 100%;
-}
-
-.job .job-details .row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center;
 }
 
-.job .job-details .row .title {
+.job .job-details .col {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.job .job-details .col1 {
+  align-items: flex-start;
+}
+
+.job .job-details .col2 {
+  align-items: flex-end;
+}
+
+.job .job-details .col .title {
   font-family: "Inter";
   font-size: 24px;
   font-weight: 400;
@@ -107,13 +128,13 @@
   z-index: 100;
 }
 
-.row .other-data {
+.col .other-data {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.row .other-data p {
+.col .other-data p {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -124,11 +145,11 @@
   margin-bottom: 10px;
 }
 
-.row .other-data p:not(:last-of-type) {
+.col .other-data p:not(:last-of-type) {
   margin-right: 39px;
 }
 
-.row .publish-date {
+.col .publish-date {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -161,6 +182,19 @@
     height: 100px;
   }
 
+  .job-details {
+    flex-direction: column;
+  }
+
+  .col .other-data {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .job-details .col2 {
+    margin-top: 16px;
+  }
+
   .job-details .job-buttons {
     width: 100%;
   }
@@ -171,19 +205,13 @@
     margin-inline: 0;
   }
 
-  .job .job-details .row {
+  .job .job-details .col {
     flex-direction: column;
     align-items: baseline;
   }
 
-  .job .job-details .row .title {
+  .job .job-details .col .title {
     margin-bottom: 10px;
-  }
-
-  .job-details .save-job {
-    position: absolute;
-    top: 20px;
-    right: 10px;
   }
 }
 
@@ -207,19 +235,10 @@
     margin-inline: 0;
     margin-top: 15px;
   }
-
-  .job-details .save-job {
-    top: 10px;
-    right: 0;
-  }
 }
 
 @media (max-width: 500px) {
-  .job-details .save-job {
-    padding: 8px;
-  }
-
-  .row .other-data p:not(:last-of-type) {
+  .col .other-data p:not(:last-of-type) {
     margin-right: 20px;
   }
 }

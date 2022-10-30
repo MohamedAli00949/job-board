@@ -1,6 +1,7 @@
 @font-face {
   font-family: Inter;
   src: url("/public/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf");
+  font-display: swap;
 }
 
 * {
@@ -58,7 +59,9 @@ a {
 }
 
 .container {
-  padding: 0px 160px;
+  margin-inline: auto;
+  padding-inline: 15px;
+  max-width: 1200px;
 }
 
 a.main-button,
@@ -79,36 +82,6 @@ button.main-button {
   width: fit-content;
 }
 
-@media (max-width: 1200px) {
-  .container {
-    padding: 0px 120px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .container {
-    padding: 0px 100px;
-  }
-}
-
-@media (max-width: 960px) {
-  .container {
-    padding: 0 80px;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 40px;
-  }
-}
-
-@media (max-width: 550px) {
-  a.main-button {
-    padding: 10px 20px;
-  }
-
-  .container {
-    padding: 0 30px;
-  }
+.main-button:hover {
+  box-shadow: 0 0 10px 0px #686868;
 }
