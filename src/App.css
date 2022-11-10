@@ -85,3 +85,7 @@ button.main-button {
 .main-button:hover {
   box-shadow: 0 0 10px 0px #686868;
 }
+
+@import url("./pages/root/Tasks/style.css");
+
+@import url("./pages/job/style.css");
