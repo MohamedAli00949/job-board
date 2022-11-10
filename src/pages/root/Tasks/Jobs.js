@@ -4,7 +4,6 @@ import { getJobs } from '../../../actions/jobs';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress } from '@chakra-ui/react';
 
-import './style.css';
 import Message from '../../../components/Message/Message';
 
 function Tasks() {

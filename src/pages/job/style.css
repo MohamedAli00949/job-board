@@ -1,0 +1,170 @@
+.more-details .inner-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.more-details .right,
+.more-details .left {
+  width: 50%;
+  padding: 10px;
+}
+
+.more-details .appling-data {
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 34px 30px;
+}
+
+.more-details .appling-data h2 {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.more-details .appling-data p {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 18px;
+}
+
+.more-details .appling-data p span {
+  font-weight: 600;
+}
+
+.job-descrition {
+  background: #fff;
+  margin-bottom: 28px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.job-descrition .upper {
+  border-bottom: 1px solid #dddddd;
+  width: 100%;
+}
+
+.job-descrition .upper .job {
+  border-radius: 0px;
+  background: transparent;
+  margin-bottom: 0;
+}
+
+.job-descrition .paragraph {
+  padding: 50px 30px;
+}
+
+.job-descrition .description-responsibility {
+  width: 100%;
+}
+
+.down-side h1 {
+  margin: 0;
+}
+
+.down-side .job-descrition .description-responsibility h1 {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 24px;
+  color: #212121;
+}
+
+.job-descrition .description-responsibility {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #777777;
+}
+
+.job-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 28px 34px; */
+  flex-direction: column;
+  text-align: start;
+  background: #fff;
+  border-radius: 4px;
+  margin-bottom: 28px;
+}
+
+.job-summary h2 {
+  width: 100%;
+  text-align: start;
+  padding: 28px 34px;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+}
+
+.job-summary .summary-data {
+  width: 100%;
+  padding: 28px 34px;
+  list-style: none;
+  font-size: 20px;
+}
+
+.job-summary .summary-data li {
+  color: #777777;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 23px;
+
+  font-family: Inter;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.summary-data li .value {
+  color: #212121;
+}
+
+.summary-data li .circle {
+  width: 10px;
+  height: 10px;
+  margin-right: 12px;
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+@media (max-width: 900px) {
+  .more-details .inner-container {
+    flex-direction: column-reverse;
+  }
+
+  .more-details .right,
+  .more-details .left {
+    width: 100%;
+  }
+
+  .job-summary {
+    margin-bottom: 8px;
+  }
+}

@@ -12,7 +12,7 @@ export default (state = { jobs: [], isLoading: true, current_page: 1, per_page: 
     case GET_JOBS:
       return {
         ...state,
-        jobs: action.data.data,
+        jobs: state.jobs.concat(action.data.data),
         current_page: action.data.meta.current_page,
         per_page: action.data.meta.per_page,
         total: action.data.meta.total

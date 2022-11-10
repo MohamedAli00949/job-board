@@ -44,7 +44,7 @@
   margin-block: 14px;
 }
 
-.left span {
+.left .hero-text {
   margin-bottom: 40px;
   display: block;
 }

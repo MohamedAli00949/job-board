@@ -16,3 +16,8 @@ export const getJobs = (page, setError) => async (dispatch, getState) => {
     console.error(error);
   }
 }
+
+
+// export const uploadLogo = async () => {
+  
+// }

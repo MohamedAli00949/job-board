@@ -29,4 +29,6 @@ API.interceptors.response.use((response) => {
 // Statrt the jobs api
 export const getAllJobs = (page) => API.get(`/jobs?page=${page}`);
 
+export const getJob = (id) => API.get(`/jobs/${id}`);
+
 // End the jobs api

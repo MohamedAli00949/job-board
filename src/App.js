@@ -14,12 +14,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import './App.css';
+import Job from './pages/job/Job';
 
 AOS.init();
 const rooter = createBrowserRouter(
   createRoutesFromElements(
     <Route path='' errorElement={<ErrorPage />}>
       <Route path='/' element={<Root />} errorElement={<ErrorPage />} />
+      <Route path='/job/:id' element={<Job />} errorElement={<ErrorPage />} />
     </Route>
   )
 )

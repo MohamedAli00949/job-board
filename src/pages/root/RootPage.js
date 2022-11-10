@@ -8,7 +8,8 @@ import { useSelector } from 'react-redux';
 const Navbar = lazy(() => import('../../components/Navbar/Navbar'));
 
 function RootPage() {
-  const {jobs} = useSelector(state => state.jobs);
+  const { total } = useSelector(state => state.jobs);
+
   return (
     <Suspense fallback={<>
       <div className='container big-loading'>
@@ -20,9 +21,9 @@ function RootPage() {
           <Navbar />
           <div className='hero'>
             <div className='left' data-aos="flip-left">
-              <p>{jobs.length}+ Jobs listed</p>
+              <p>{total}+ Jobs listed</p>
               <h1>Find your Dream Job</h1>
-              <span>We provide online instant cash loans with quick approval that suit your term length</span>
+              <span className="hero-text">We provide online instant cash loans with quick approval that suit your term length</span>
               <a className='main-button' href="/#jobs">start applying now</a>
             </div>
             <div className='right' data-aos="flip-right">
