@@ -25,7 +25,7 @@ export const createJob = (jobData, setErrors, setMessage, navigate) => async (di
 
     const { data } = await api.createJob(jobData);
 
-    // dispatch({ type: CREATE_JOB, data })
+    dispatch({ type: CREATE_JOB, data });
     navigate(`/job/${data.data.id}`);
 
     dispatch({ type: END_LOADING });

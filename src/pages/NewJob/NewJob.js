@@ -161,7 +161,7 @@ function NewJob() {
                   name="type"
                   type="number"
                   min="1"
-                  max="3"
+                  max="2"
                   required
                   placeholder='job type'
                   setErrors={setErrors}
