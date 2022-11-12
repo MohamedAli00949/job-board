@@ -1,52 +1,39 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { CircularProgress } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import { getJob } from '../../api';
+import Message from '../../components/Message/Message';
 
 const Navbar = lazy(() => import('../../components/Navbar/Navbar'));
 
-/**
- * 1 - Find the jobs at reducers
- * 2 - if the jobs is empty, make the getJob(id)
- * 3 - job object : {
-    "company_email": "test@test.com",
-    "company_logo": "https://ucarecdn.com/3ec2e65c-b1a5-4961-8dbd-c921572e4a95/",
-    "company_name": "Google",
-    "created_at": "2022-10-22T19:54:02.995021+00:00",
-    "description": "<h1>test</h1><p>test</p>&lt;div&gt;test&lt;/div&gt;",
-    "id": 1,
-    "location": "USA",
-    "salary": "80 - 150k",
-    "title": "Software Engineer",
-    "type": 1,
-    "vacancy": 3
- * }
- * 
- * @returns jobs
- */
 function Job() {
   const { id } = useParams();
   const { jobs, total } = useSelector(state => state.jobs);
 
   const [job, setJob] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
-      if (!job) {
-        setIsLoading(true);
-        if (total !== undefined) {
-          const jobData = jobs.find((job) => job.id === Number(id));
-          setJob(jobData);
-        } else {
-          const { data } = await getJob(id);
-          const jobData = data.data;
-          setJob(jobData);
-          // document.querySelector('.description').append(jobData.description);
+      if (!isNaN(Number(id))) {
+        if (!job) {
+          setIsLoading(true);
+          if (total !== undefined) {
+            const jobData = jobs.find((job) => job.id === Number(id));
+            setJob(jobData);
+          } else {
+            const { data } = await getJob(id);
+            const jobData = data.data;
+            setJob(jobData);
+          }
+          setIsLoading(false);
         }
-        setIsLoading(false);
+      } else {
+        setMessage("Invalid Id");
+        navigate("/");
       }
     })();
 
@@ -81,7 +68,7 @@ function Job() {
   if (isLoading) {
     return (
       <div>
-        <div className='container big-loading'>
+        <div className='big-loading'>
           <CircularProgress isIndeterminate color='#00d363' thickness='6px' size="250px" />
         </div>
       </div>
@@ -90,10 +77,11 @@ function Job() {
 
   return (
     <Suspense fallback={<>
-      <div className='container big-loading'>
+      <div className='big-loading'>
         <CircularProgress isIndeterminate color='#00d363' thickness='6px' size="250px" />
       </div>
     </>}>
+      {message && (<Message message={message} type="error" setMessage={setMessage} />)}
       <section className='upper-side'>
         <div className='container'>
           <Navbar />

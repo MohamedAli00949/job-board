@@ -12,7 +12,7 @@ function RootPage() {
 
   return (
     <Suspense fallback={<>
-      <div className='container big-loading'>
+      <div className='big-loading'>
         <CircularProgress isIndeterminate color='#00d363' thickness='6px' size="250px" />
       </div>
     </>}>
