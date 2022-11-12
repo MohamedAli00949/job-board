@@ -4,10 +4,10 @@ const API = axios.create({ baseURL: "https://gdsc-job-app.herokuapp.com/api" });
 
 // Add a request interceptor
 API.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
+  // const token = localStorage.getItem("token");
+  // if (token) {
+  //   config.headers.Authorization = `Bearer ${token}`;
+  // }
 
   return config;
 }, (error) => {
@@ -31,4 +31,5 @@ export const getAllJobs = (page) => API.get(`/jobs?page=${page}`);
 
 export const getJob = (id) => API.get(`/jobs/${id}`);
 
+export const createJob = (formData) => API.post('/jobs', formData);
 // End the jobs api

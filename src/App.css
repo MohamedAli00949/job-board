@@ -65,7 +65,7 @@ a {
 }
 
 a.main-button,
-button.main-button {
+button.main-button:not(:disabled) {
   font-family: Inter;
   font-size: 16px;
   font-weight: 500;
@@ -82,7 +82,7 @@ button.main-button {
   width: fit-content;
 }
 
-.main-button:hover {
+.main-button:hover:not(:disabled) {
   box-shadow: 0 0 10px 0px #686868;
 }
 
